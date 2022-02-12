@@ -1,13 +1,14 @@
-from xmlrpc.server import SimpleXMLRPCServer
+from flask import Flask #, request, render_template, redirect, session
+import socket
 
-local_ip = 'localhost'
+app = Flask(__name__)
+hostname = socket.gethostname()
+local_ip = socket.gethostbyname(hostname)
 
-def get_servers ():
-    print ("entered sus")
-    return "sus"
+@app.route("/")
+def index():
+    return local_ip
 
 
-rpc_server = SimpleXMLRPCServer((local_ip, 6789),allow_none=True)
-rpc_server.register_function(get_servers, "sus")
-rpc_server.serve_forever()
-    
+if (__name__ == "__main__"):
+        app.run(debug=True)
