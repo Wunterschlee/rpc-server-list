@@ -48,7 +48,8 @@ def run_server():
 #get my adress TO SMART GONNA ADD HEROKU MANUALY TO ADRESS
 #hostname = socket.gethostname()
 #local_ip = socket.gethostbyname(hostname)
-local_ip = "http://server-list-rpc.herokuapp.com"
+#local_ip = "http://server-list-rpc.herokuapp.com"
+local_ip = 'localhost'
 
 rpc_server = SimpleXMLRPCServer((local_ip, 6789),allow_none=True)
 rpc_server.register_function(register, "register")
