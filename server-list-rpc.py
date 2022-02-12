@@ -34,7 +34,7 @@ def get_servers ():
 def make_servers_older():
     while True:
         time.sleep(5)
-#        print ('entered loop')
+        print ('entered loop')
         for serv in server_list:
             serv.self_removal_timer -= 1
             if serv.self_removal_timer < 1:
@@ -48,8 +48,7 @@ def run_server():
 #get my adress TO SMART GONNA ADD HEROKU MANUALY TO ADRESS
 #hostname = socket.gethostname()
 #local_ip = socket.gethostbyname(hostname)
-#local_ip = "http://server-list-rpc.herokuapp.com"
-local_ip = 'localhost'
+local_ip = "https://server-list-rpc.herokuapp.com"
 
 rpc_server = SimpleXMLRPCServer((local_ip, 6789),allow_none=True)
 rpc_server.register_function(register, "register")
