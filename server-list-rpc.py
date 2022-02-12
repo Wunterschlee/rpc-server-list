@@ -24,8 +24,8 @@ def register (s):
     new_server = server (s.get('adress'), s.get('port'),s.get('name'),s.get('cur_players'))
     if check_present(new_server):
         server_list.append (new_server)
-#        print ("registered ", new_server.name)
-#    else: print("found copy of ", new_server.name)
+        print ("registered ", new_server.name)
+    else: print("found copy of ", new_server.name)
 
 def get_servers ():
     return server_list
@@ -38,7 +38,7 @@ def make_servers_older():
         for serv in server_list:
             serv.self_removal_timer -= 1
             if serv.self_removal_timer < 1:
-#                print (f"Removing {serv.name} due to inactivity.")
+                print (f"Removing {serv.name} due to inactivity.")
                 server_list.remove(serv)
               
 def run_server():
